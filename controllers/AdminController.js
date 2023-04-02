@@ -1,5 +1,6 @@
 const User = require("../models/User")
 const cloudinary = require("../middlewares/cloudinary")
+const Product = require("../models/Product")
 
 class AdminController {
     async admin(req, res) {
@@ -53,6 +54,22 @@ class AdminController {
                     }))
             })
             .catch(err => res.json({ code: 1, message: err.message }))
+    }
+    async listproducts(req,res){
+        await Product.find({})
+            .then(pro => {
+                console.log(pro)
+                if (pro) {
+                    return res.json({
+                        code: 0,
+                        message: "success",
+                        data:pro
+                    })
+                }
+            })
+            .catch(err => res.json({
+                code: 1, message: err.message
+            }))
     }
 }
 

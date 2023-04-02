@@ -11,5 +11,5 @@ router.get("/:_id", admin, adminController.getEmployee)
 router.post("/add-employee", admin, upload.single('image'), validate, userController.addNewUser)
 router.put("/edit-employee", admin, upload.single('image'), validate, userController.editUser)
 router.delete("/delete-employee", admin, adminController.deleteEmployee)
-
+router.get("/a/products",admin,adminController.listproducts)
 module.exports = router

@@ -21,11 +21,13 @@ class OrderController {
             })
 
         await Product.find({})
-            .then(products => res.render("order", {
-                user: user || null,
-                products: products,
-                cart: cart
-            }))
+            .then(products =>{
+                res.render("order", {
+                    user: user || null,
+                    products: products,
+                    cart: cart
+                })
+            })
     }
 }
 
